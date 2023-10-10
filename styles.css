@@ -1,5 +1,31 @@
 :root {
-  font-family: "DM Sans", sans-serif;
+  --fonte-padrao: "IBM Plex Sans", sans-serif;
+  --fonte-destaque: "IBM Plex Sans Condensed", sans-serif;
+
+  --clr-texto: hsl(204, 100%, 1%);
+  --clr-superficie: #f7f7f78e;
+  --clr-primaria: rgb(239, 45, 86);
+  --clr-secundaria: rgb(237, 125, 58);
+  --clr-terciaria: rgb(140, 216, 103);
+  --clr-destaque: rgb(47, 191, 113);
+
+  --fonte-300: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
+  --fonte-400: clamp(1.25rem, 1.0326rem + 1.087vw, 1.875rem);
+  --fonte-500: clamp(1.5625rem, 1.1277rem + 2.1739vw, 2.8125rem);
+  --fonte-600: clamp(1.9531rem, 1.1651rem + 3.9402vw, 4.2188rem);
+  --fonte-700: clamp(2.4413rem, 1.0893rem + 6.7598vw, 6.3281rem);
+  --fonte-800: clamp(3.0519rem, 0.8117rem + 11.2011vw, 9.4925rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --clr-texto: hsl(0, 0%, 100%);
+    --clr-superficie: #2e2d2e;
+    --clr-primaria: rgb(130, 13, 38);
+    --clr-secundaria: rgb(132, 59, 17);
+    --clr-terciaria: rgb(53, 123, 17);
+    --clr-destaque: rgb(15, 129, 66);
+  }
 }
 
 *,
@@ -20,4 +46,89 @@ img {
 
 h1 {
   position: relative;
+}
+
+body {
+  font-family: var(--fonte-padrao);
+  font-size: var(--fonte-300);
+  line-height: 1.6;
+
+  background-color: var(--clr-superficie);
+  color: var(--clr-texto);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--fonte-destaque);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h1 {
+  --flow-espaco: 2em;
+
+  font-size: var(--fonte-700);
+  margin-block: 1rem;
+}
+
+h2 {
+  --flow-espaco: 1.5em;
+
+  font-size: var(--fonte-600);
+  color: var(--clr-secundaria);
+}
+
+h3 {
+  --flow-espaco: 1em;
+
+  font-size: var(--fonte-500);
+  color: var(--clr-terciaria);
+}
+
+h4 {
+  --flow-espaco: 0.5em;
+}
+
+p {
+  text-align: justify;
+}
+
+a {
+  color: var(--clr-primaria);
+}
+
+a:focus,
+a:hover {
+  color: var(--clr-secundaria);
+}
+
+::marker {
+  color: var(--clr-destaque);
+}
+
+.container {
+  width: min(100% - 3rem, 50ch);
+  margin-inline: auto;
+}
+
+/* seleciona tudo menos o primeiro elemento */
+.flow > * + * {
+  margin-top: var(--flow-espaco, 1em);
+}
+
+ol {
+  padding-block: 1rem;
+  border-left: 3px solid var(--clr-destaque);
+}
+
+footer {
+  text-align: center;
+  background-color: var(--clr-superficie);
+
+  position: sticky;
+  left: 0;
+  right: 0;
+  top: 100%;
 }
