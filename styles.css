@@ -118,13 +118,18 @@ a:hover {
   margin-top: var(--flow-espaco, 1em);
 }
 
+ul,
 ol {
-  padding-block: 1rem;
+  padding-block: 1.5rem;
+  border-radius: 0.25em;
   border-left: 3px solid var(--clr-destaque);
 }
 
+li {
+  padding-block: 0.25em;
+}
+
 footer {
-  text-align: center;
   background-color: var(--clr-superficie);
 
   position: sticky;
